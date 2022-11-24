@@ -13,7 +13,7 @@ class UpdatetodoRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class UpdatetodoRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => ['required', 'max:32'],
+            'description' => ['max:256'],
+            'due_date' => ['date'],
+            'is_complete' => ['integer', 'between:0,1']
         ];
     }
 }

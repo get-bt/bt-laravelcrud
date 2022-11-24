@@ -15,7 +15,10 @@ return new class extends Migration
     {
         Schema::create('todos', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('name', 64);
+            $table->mediumText('description')->nullable();
+            $table->date('due_date')->nullable();
+            $table->boolean('is_complete')->default(0);
         });
     }
 

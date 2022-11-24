@@ -5,7 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class todo extends Model
+class Todo extends Model
 {
     use HasFactory;
+
+    protected $collection = 'todos';
+
+    public $timestamps = false;
+
+    protected $fillable = [
+        'name',
+        'description',
+        'due_date',
+        'is_complete'
+    ];
 }
